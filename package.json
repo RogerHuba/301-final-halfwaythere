@@ -1,0 +1,20 @@
+{
+  "name": "301-final-halfwaythere",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpruazol/301-final-halfwaythere.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpruazol/301-final-halfwaythere/issues"
+  },
+  "homepage": "https://github.com/rpruazol/301-final-halfwaythere#readme"
+}
