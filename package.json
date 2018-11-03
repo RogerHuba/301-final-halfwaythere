@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/rpruazol/301-final-halfwaythere/issues"
   },
-  "homepage": "https://github.com/rpruazol/301-final-halfwaythere#readme"
+  "homepage": "https://github.com/rpruazol/301-final-halfwaythere#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "pg": "^7.6.0",
+    "superagent": "^4.0.0-beta.5"
+  }
 }
