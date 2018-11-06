@@ -2,7 +2,7 @@
 
 
 Address
-https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=AIzaSyBQq87VH6RbS-fDdhQpaP1v0n08265nQwI 
+https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=API_KEY
 
 
 
@@ -471,7 +471,7 @@ midLng = ((startLng + endLng)/2);
 
 
 Lat&long
-https://maps.googleapis.com/maps/api/directions/json?origin=47.618271,-122.351863&destination=47.307598,-122.228039&key=AIzaSyBQq87VH6RbS-fDdhQpaP1v0n08265nQwI
+https://maps.googleapis.com/maps/api/directions/json?origin=47.618271,-122.351863&destination=47.307598,-122.228039&key=API_KEY
 
 
 {
