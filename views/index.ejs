@@ -1,21 +1,44 @@
-<!DOCTYPE HTML5>
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-      <main>
-          <% results.forEach( item => { %>
-              <li>
-                <section>
-                  <h4><%= item.search_query %></h4>
-              </section>
-              </li>
-              <% }) %>
-          </ul>
-        </main>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Halfway There</title>
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <h1>Find Halfway</h1>
+
+    <form action="/location" method="POST">
+      <div class="home-search-container ">
+        <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1">
+        <!-- <form action="/address" method="POST"> -->
+          <button id="currentLocationBtn" type="submit" formaction="/address" formmethod="POST">Current Location</button>
+        <!-- </form> -->
+      </div>
+
+      <input type="text" id="addressTwo" name="addressTwo" placeholder="Enter Address 2" >
+
+
+      <select name="venue" id="venue">
+        <option value="cafe">cafe</option>
+        <option value="bar">bar</option>
+        <option value="pizza">pizza</option>
+        <option value="breakfast">breakfast</option>
+      </select>
+
+
+      <input id="findBtn" type="submit" value="find halfway">
+
+    </form>
+
+  </main>
+
+  <footer></footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+</body>
 </html>
-
-
-

@@ -5,6 +5,7 @@
 const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
+var geolocation = require('geolocation');
 
 const pg = require('pg');
 
@@ -17,18 +18,37 @@ client.connect();
 client.on('err', err => console.log(err));
 const app = express();
 
+app.use(express.urlencoded({extended:true}))
+
+// error handlers
+app.get('/error', (req,res) =>{
+  // console.log(req.query.e);
+  res.render('pages/error', {error: req.query.e});
+});
+
+// geolocation.getCurrentPosition(function (err, position) {
+//   if (err) throw err
+//   console.log(position)
+// })
+
 app.set('view engine','ejs');
 app.use(cors());
 app.listen(PORT, () => {
   console.log(`app is running on ${PORT}`)
 });
 app.use(express.static('public'));
-app.get('/', getData);
+app.get('/', getHome);
 
-app.get('/error', (req,res) =>{
-  // console.log(req.query.e);
-  res.render('pages/error', {error: req.query.e});
-});
+
+
+app.post('/location',findHalfwayPoint);
+
+app.post('/address', addCurrentAddress);
+
+// $('findBtn').on('click', findHalfwayPoint);
+
+// let addressOne = $('#addressOne').val()
+// let addressTwo = $('addressTwo').val()
 
 // function testPage(request, response){
 //   response.render('index');
@@ -45,4 +65,39 @@ function getData(request, response) {
 
 function handleError(request, response) {
   response.redirect('/error');
+}
+
+
+function getHome(req, res){
+  res.render('index');
+}
+
+
+function findHalfwayPoint(req, res){
+  console.log(req.body);
+  
+  res.render('index');
+  // let addressOne = $('#addressOne').val()
+  // let addressTwo = $('addressTwo').val()
+  // console.log(`addy 1 ${addressOne} and addy 2 ${addressTwo}`);
+}
+
+function addCurrentAddress(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(grabCurrentAddress);
+ } else { 
+     x.innerHTML = "Geolocation is not supported by this browser.";
+ }
+}
+
+
+
+function grabCurrentAddress(position){
+  position.coords.latitude
+  const URL= `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${process.env.GEOCODE_API_KEY}`
+  return superagent.get(URL)
+  .then(address =>{
+    console.log(address)
+    res.render('index');
+  })
 }

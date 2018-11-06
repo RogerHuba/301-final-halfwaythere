@@ -18,7 +18,7 @@ Yelp - https://www.yelp.com/fusion
 
 ### Day1:
 
-Pablo: 
+Pablo: I created the ReadMe, set up the Kanban board for project management, and helped Roger look into the Google directions API so we can find out how to get a midpoint between two points.
 
 Ray:
 
