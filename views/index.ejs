@@ -4,41 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/base.css">
   <title>Halfway There</title>
 </head>
 <body>
   <header></header>
 
   <main>
-    <h1>Find Halfway</h1>
+    <div class = "main-container">
+      <h1><span>Find</span> Halfway<span>.</span></h1>
+      <form action="/location" method="POST">
+        <div class="home-search-container ">
+          <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1">
+            <button id="currentLocationBtn" type="button">Current Location</button>
+        </div>
 
-    <form action="/location" method="POST">
-      <div class="home-search-container ">
-        <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1">
-        <!-- <form action="/address" method="POST"> -->
-          <button id="currentLocationBtn" type="submit" formaction="/address" formmethod="POST">Current Location</button>
-        <!-- </form> -->
+        <input type="text" id="addressTwo" name="addressTwo" placeholder="Enter Address 2" >
+
+
+        <select name="venue" id="venue">
+          <option value="cafe">cafe</option>
+          <option value="bar">bar</option>
+          <option value="pizza">pizza</option>
+          <option value="breakfast">breakfast</option>
+        </select>
+
+
+        <input id="findBtn" type="submit" value="find halfway">
+
+      </form>
       </div>
-
-      <input type="text" id="addressTwo" name="addressTwo" placeholder="Enter Address 2" >
-
-
-      <select name="venue" id="venue">
-        <option value="cafe">cafe</option>
-        <option value="bar">bar</option>
-        <option value="pizza">pizza</option>
-        <option value="breakfast">breakfast</option>
-      </select>
-
-
-      <input id="findBtn" type="submit" value="find halfway">
-
-    </form>
-
   </main>
 
   <footer></footer>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
