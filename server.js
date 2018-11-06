@@ -2,49 +2,52 @@
 
 //PROXY SERVER - API server
 
+// Application Dependencies
 const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
-// var geolocation = require('geolocation');
-
 const pg = require('pg');
 
-require('dotenv').config();
-
-const PORT = process.env.PORT;
-const client = new pg.Client(process.env.DATABASE_URL);
-
-client.connect();
-client.on('err', err => console.log(err));
+// app setup
+const PORT = process.env.PORT || 3000;
 const app = express();
-
-app.use(express.urlencoded({extended:true}))
-
-// error handlers
-app.get('/error', (req,res) =>{
-  // console.log(req.query.e);
-  res.render('pages/error', {error: req.query.e});
-});
-
-// geolocation.getCurrentPosition(function (err, position) {
-//   if (err) throw err
-//   console.log(position)
-// })
-
+require('dotenv').config();
 app.set('view engine','ejs');
 app.use(cors());
-app.listen(PORT, () => {
-  console.log(`app is running on ${PORT}`)
-});
 app.use(express.static('public'));
-app.get('/', getHome);
+app.use(express.urlencoded({extended:true}))
 
+// psql db
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('err', err => console.log(err));
+
+
+app.listen(PORT, ()=>{console.log(`app is running on ${PORT}`)});
+
+
+// API Routes
+app.get('/', getHome);
 
 app.post('/location',findHalfwayPoint);
 
 app.post('/address', grabCurrentAddress);
 
-// app.post('')
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// error handlers
+function handleError (err, res) {
+  console.error('**',err, '**');
+  // res.redirect('/error');
+}
+
+// render error page
+// function renderError(req,res){
+//   res.render('./pages/error');
+// }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function getData(request, response) {
@@ -92,15 +95,15 @@ function addCurrentAddress(req,res){
 
 
 function grabCurrentAddress(req, res){
-  console.log('&&&&&&');
-  console.log(req.body);
+  // console.log('&&&&&&');
+  // console.log(req.body);
 
 
   const URL= `https://maps.googleapis.com/maps/api/geocode/json?latlng=${req.body.latitude},${req.body.longitude}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(URL)
   .then(address =>{
-    console.log(address.body, 'ENND');
-    res.render('index');
+    res.send(address.body.results[0].formatted_address);
+    // res.render('index');
   })
-  .catch(handleError);
+  .catch(handleError)
 }
