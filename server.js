@@ -36,6 +36,7 @@ app.post('/address', grabCurrentAddress);
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // error handlers
+
 function handleError (err, res) {
   console.error('**',err, '**');
   // res.redirect('/error');
@@ -69,41 +70,33 @@ function getHome(req, res){
   res.render('index');
 }
 
-
-function findHalfwayPoint(req, res){
-  console.log(req.body);
-  
-  res.render('index');
-  // let addressOne = $('#addressOne').val()
-  // let addressTwo = $('addressTwo').val()
-  // console.log(`addy 1 ${addressOne} and addy 2 ${addressTwo}`);
-}
-
-function addCurrentAddress(req,res){
-  // console.log(req.body);
-  // geolocation.getCurrentPosition(grabCurrentAddress);
-  // console.log(geolocation.getCurrentPosition());
-
-  // console.log('heeere',geolocation);
-//   if (geolocation) {
-//     geolocation.getCurrentPosition(grabCurrentAddress);
-//  } else { 
-//      x.innerHTML = "Geolocation is not supported by this browser.";
-//  }
-}
-
-
-
 function grabCurrentAddress(req, res){
-  // console.log('&&&&&&');
-  // console.log(req.body);
-
-
   const URL= `https://maps.googleapis.com/maps/api/geocode/json?latlng=${req.body.latitude},${req.body.longitude}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(URL)
   .then(address =>{
     res.send(address.body.results[0].formatted_address);
-    // res.render('index');
   })
   .catch(handleError)
 }
+
+function findHalfwayPoint(req, res){
+  // console.log(req.body);
+  const URL = `https://maps.googleapis.com/maps/api/directions/json?origin=${req.body.addressOne}&destination=${req.body.addressTwo}&key=${process.env.GEODIRECTIONS_API_KEY}`
+  return superagent.get(URL)
+  .then(results =>{
+    let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
+    let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
+    console.log(midLat);
+    console.log(midLng);
+    console.log(req.body.venue);
+    getyYelp(midLat,midLng,req.body.venue);
+    
+  })
+}
+
+
+function getYelp(lat,long, venue){
+  const URL =``
+
+}
+
