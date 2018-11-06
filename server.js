@@ -7,12 +7,15 @@ const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
+const ejs = require('ejs');
 
 // app setup
 const PORT = process.env.PORT || 3000;
 const app = express();
 require('dotenv').config();
 app.set('view engine','ejs');
+
+
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}))
@@ -37,7 +40,7 @@ app.post('/address', grabCurrentAddress);
 ////////////////////////////////////////////////////////////////////////////////////////////
 // error handlers
 
-function handleError (err, res) {
+function handleError (err, res) {res
   console.error('**',err, '**');
   // res.redirect('/error');
 }
@@ -50,6 +53,18 @@ function handleError (err, res) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
+function Location(data){
+  this.name = data.name ? data.name : 'No data Found';
+  this.isClosed = data.is_closed ? data.is_closed : 'No data Found';
+  this.img_url = data.img_url ? data.img_url : 'No data Found';
+  this.yelp_url = data.yelp_url ? data.yelp_url : 'No data Found'; 
+  this.info = data.categories[0].title ? data.categories[0].title : 'No data Found';
+  this.rating = data.rating ? data.rating : 'No data Found';
+  this.price = data.price ? data.price : 'No data Found';
+  this.address = data.location.display_address ? data.location.display_address : 'No data Found';
+  this.phone = data.phone ? data.phone : 'No data Found';
+  
+}
 
 function getData(request, response) {
   let SQL = 'SELECT * from locations;';
@@ -86,17 +101,30 @@ function findHalfwayPoint(req, res){
   .then(results =>{
     let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
     let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
-    console.log(midLat);
-    console.log(midLng);
-    console.log(req.body.venue);
-    getyYelp(midLat,midLng,req.body.venue);
-    
+   
+    let data ={
+      lat: midLat,
+      lng: midLng,
+      venue: req.body.venue
+    }
+    getYelp(data, req, res);
   })
 }
 
 
-function getYelp(lat,long, venue){
-  const URL =``
-
+function getYelp(data,req,res){
+  console.log(req);
+  const URL =`https://api.yelp.com/v3/businesses/search?term=${data.venue}&latitude=${data.lat}&longitude=${data.lng}`
+  return superagent.get(URL)
+  .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
+  .then(results =>{
+  let locationArr = [];
+    // console.log(results.body.businesses[0].location.display_address);
+    results.body.businesses.forEach(location =>{
+      locationArr.push(new Location(location));
+    })
+    res.render('locations', {locations: locationArr});
+  })
+  .catch(handleError);
 }
 
