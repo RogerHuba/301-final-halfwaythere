@@ -38,7 +38,6 @@ function getData(request, response) {
   let SQL = 'SELECT * from locations;';
   return client.query(SQL)
     .then(results =>
-      // console.log(results.rows))
       response.render('index', {results: results.rows}))
     .catch(handleError);
 }
