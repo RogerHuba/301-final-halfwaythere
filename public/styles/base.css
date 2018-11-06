@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color:#f1f1f1;
+
+}
+main{
+    display:flex;
+    justify-content: center;
+}
+
+.main-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    font-size: 3.5em;
+}
+.home-search-container{
+    display:flex;
+}
+
+input{
+    border: none;
+}
