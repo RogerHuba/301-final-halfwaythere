@@ -1,7 +1,7 @@
 {
   "name": "301-final-halfwaythere",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full stack web app that quickly finds the halfway point between two users and gives them a list of different eateries to meet.\r Created by: Pablo Rosales, Raymond Ruazol, Roger Huba, and Tanner Seramur.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,13 +22,11 @@
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-
     "nodemon": "^1.18.6",
-
     "geolocation": "^0.2.0",
     "jquery": "^3.3.1",
-
     "pg": "^7.6.0",
     "superagent": "^4.0.0-beta.5"
-  }
+  },
+  "devDependencies": {}
 }
