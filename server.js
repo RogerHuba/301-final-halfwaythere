@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}))
 // psql db
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
-client.on('err', err => console.log(err));
+client.on('err', err => console.log(err)); 
 
 
 app.listen(PORT, ()=>{console.log(`app is running on ${PORT}`)});
@@ -62,6 +62,7 @@ function Location(data){
   this.price = data.price ? data.price : 'No data Found';
   this.address = data.location.display_address ? data.location.display_address : 'No data Found';
   this.phone = data.phone ? data.phone : 'No data Found';
+
   this.id = data.name.replace(/\s/g, "");
   
 }
@@ -126,12 +127,8 @@ function getYelp(data,req,res){
 }
 
 function save(req, res){
-  let SQL = `
-  INSERT INTO table-name-here
-  (values, go, here)
-  VALUES($1,$2,$3)`;
+  let SQL = `INSERT INTO yelp (name, url, price, image_url, rating) VALUES($1,$2,$3,$4,$5,$6)`;
   let value = Object.values(req.body);
   client.query(SQL,value);
-  res.redirect('to whatever page we are on');
+  // res.redirect('to whatever page we are on');
 }
-
