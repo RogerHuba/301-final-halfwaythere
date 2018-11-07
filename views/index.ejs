@@ -1,23 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles/base.css">
-  <title>Halfway There</title>
-</head>
+  <%- include('../views/head', {page_title:"HalfWayThere"}); %>
 <body>
-  <header>
-    <nav>
-      <i class="fas fa-bars"></i>
-      <h2>Halfway There</h2>
-      <i class="fas fa-ellipsis-v"></i>
-    </nav>
-  </header>
-
+  <%- include('../views/header'); %>
   <main>
     <div class="main-container">
       <h1><span>Find</span> Halfway<span>.</span></h1>
@@ -27,12 +12,9 @@
           <div class="or-container">
             <div class="line"></div><p>OR</p><div class="line"></div>
           </div>
-
           <button id="currentLocationBtn" type="button">Use Current Location</button>
         </div>
-
         <input type="text" id="addressTwo" name="addressTwo" placeholder="Enter Address 2" >
-
         <div class ="select">
         <select name="venue" id="venue">
           <option value="cafe">cafe</option>
@@ -41,16 +23,11 @@
           <option value="breakfast">breakfast</option>
         </select>
       </div>
-
-
         <input id="findBtn" type="submit" value="SEARCH">
-
       </form>
       </div>
   </main>
-
-  <footer></footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="app.js"></script>
+  <%- include('../views/footer'); %>
+  <%- include('../views/scripts'); %>
 </body>
 </html>
