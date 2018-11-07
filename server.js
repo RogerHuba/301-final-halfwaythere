@@ -121,13 +121,14 @@ function getYelp(data,req,res){
       locationArr.push(new Location(location));
     })
     res.render('locations', {locations: locationArr});
-    console.log(locationArr);
+    // console.log(locationArr);
   })
   .catch(handleError);
 }
 
 function save(req, res){
-  let SQL = `INSERT INTO yelp (name, url, price, image_url, rating) VALUES($1,$2,$3,$4,$5,$6)`;
+  let SQL = `INSERT INTO yelp (name, image_url, yelp_url, info, rating, price, address, location, phone) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`;
+  console.log(SQL);
   let value = Object.values(req.body);
   client.query(SQL,value);
   // res.redirect('to whatever page we are on');
