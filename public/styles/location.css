@@ -25,11 +25,9 @@ button{
 }
 h2{
     font-size: 1.8em;
-    width: 75%;
+    /* width: 75%; */
 }
-p{
-    width: 75%;
-}
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -85,4 +83,3 @@ img{
   margin-left: auto;
   margin-right: auto;
   }
-  

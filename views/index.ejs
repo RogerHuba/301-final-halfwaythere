@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('../views/head', {page_title:"HalfWayThere"}); %>
+  <link rel="stylesheet" href="styles/base.css">
 <body>
   <%- include('../views/header'); %>
   <main>
@@ -10,7 +11,7 @@
         <div class="home-search-container ">
           <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1">
           <div class="or-container">
-            <div class="line"></div><p>OR</p><div class="line"></div>
+            <div class="line"></div><p class='orText'>OR</p><div class="line"></div>
           </div>
           <button id="currentLocationBtn" type="button">Use Current Location</button>
         </div>
