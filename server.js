@@ -67,6 +67,22 @@ function Location(data){
   
 }
 
+Location.prototype.generateMap = function(id);
+function initMap() {
+  var myLatLng = {lat: 44.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('this.id'), {
+    zoom: 12,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
 function getData(request, response) {
   let SQL = 'SELECT * from locations;';
   return client.query(SQL)
@@ -132,3 +148,4 @@ function save(req, res){
   client.query(SQL,value);
   // res.redirect('to whatever page we are on');
 }
+
