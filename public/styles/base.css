@@ -90,7 +90,15 @@ input{
     color: #fcce77;
 }
 
-
+/* nav */
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #53787D;
+    color: #fcce77;
+    
+}
 
 
 
@@ -139,7 +147,7 @@ select {
   }
   /* Transition */
   .select:hover::after {
-    color: #f39c12;
+    color: #fcce77;
   }
   .select::after {
     -webkit-transition: .25s all ease;

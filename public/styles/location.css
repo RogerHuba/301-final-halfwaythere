@@ -53,9 +53,7 @@ p{
     background-color: #f2f2f2;
     width: 100vw;
     height: 100vh;
-    max-width: 600px;
     padding: 30px;
-    min-width: 450px;
     z-index: 100;
   }
   
