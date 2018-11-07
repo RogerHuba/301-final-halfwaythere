@@ -7,10 +7,14 @@ CREATE DATABASE halfwaythere;
 CREATE TABLE yelp (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    url VARCHAR(255),
-    price VARCHAR(255),
+     boolean,
     image_url VARCHAR(255),
-    rating NUMERIC(2,1)
+    yelp_url VARCHAR(255),
+    info TEXT,
+    rating NUMERIC(2,1),
+    price VARCHAR(255),
+    address VARCHAR(255),
+    phone VARCHAR(255)
 );
 
 CREATE TABLE users (
@@ -26,7 +30,7 @@ CREATE TABLE history (
 );
 
 INSERT INTO yelp (name, url, price, image_url,rating) 
-VALUES ('test shop', 'http://google.maps.com', '$$', 'image.com', 5);
+VALUES ('test shop', false, 'http://google.maps.com', '$$', 'image.com', 5);
 
 INSERT INTO users (user_name, mobile_number) 
 VALUES ('Ray', 7812498879);
