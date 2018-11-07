@@ -23,15 +23,25 @@
             <% locations.forEach((location) => { %>
             <div class="card-container">
                 <div class="pop">
-                    <button onclick="myFunc('btn')">
+                    <button onclick="myFunc('<%- location.id %>')">
                         <h2><%= location.name %></h2>
                         <div><p><%= location.rating %></p></div>
                     </button>
                 </div>
-                <div class="popup-container" id= "popup">
+                <div class="popup-container" id= "<%- location.id %>">
                     <div class="popup">
                         <h2><%= location.name %></h2>
-                        <button onclick="closePop()">Back</button>
+                        <h3><%= location.isClosed %></h3>
+                        <img src="<%-location.img_url %>" alt="location image">
+                        <h4><%= location.info %></h4>
+                        <h4><%= location.address %></h4>
+                        <p><%= location.rating %></p>
+                        <p><%= location.price %></p>
+                        <p><%= location.phone %></p>
+                        
+
+
+                        <button onclick="closePop('<%- location.id %>')">Back</button>
                     </div>
                 </div>
 
@@ -41,17 +51,19 @@
         </div>
 
         <script>
-        var btn = document.getElementById("popup")      
+        console.log(location)
+             
         var myFunc = function(type){
-            console.log('hi');
-            
+            // console.log('hi');
+            var btn = document.getElementById(type) 
             btn.classList.add("isvisable");
         }
     
-        var closePop = function(){
-           if(event.currentTarget === event.target){
-             btn.classList.remove("isvisable")
-           }
+        var closePop = function(type){
+        //    if(event.currentTarget === event.target){
+            var btn = document.getElementById(type) 
+            btn.classList.remove("isvisable")
+        //    }
         }
         </script>
     </main>
