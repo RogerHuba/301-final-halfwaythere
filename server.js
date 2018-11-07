@@ -54,15 +54,16 @@ function handleError (err, res) {res
 
 function Location(data){
   this.name = data.name ? data.name : 'No data Found';
-  this.isClosed = data.is_closed ? data.is_closed : 'No data Found';
-  this.img_url = data.img_url ? data.img_url : 'No data Found';
-  this.yelp_url = data.yelp_url ? data.yelp_url : 'No data Found'; 
+  // this.isClosed = data.hours[x].is_open_now ? data.is_closed : 'No Data Found';
+  this.img_url = data.image_url ? data.image_url : 'No data Found';
+  this.yelp_url = data.url ? data.url : 'No data Found'; 
   this.info = data.categories[0].title ? data.categories[0].title : 'No data Found';
   this.rating = data.rating ? data.rating : 'No data Found';
   this.price = data.price ? data.price : 'No data Found';
   this.address = data.location.display_address ? data.location.display_address : 'No data Found';
   this.phone = data.phone ? data.phone : 'No data Found';
-  console.log(this);
+
+  this.id = data.name.replace(/\s/g, "");
   
 }
 
@@ -120,6 +121,7 @@ function getYelp(data,req,res){
       locationArr.push(new Location(location));
     })
     res.render('locations', {locations: locationArr});
+    console.log(locationArr);
   })
   .catch(handleError);
 }
