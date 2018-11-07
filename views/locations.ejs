@@ -23,10 +23,8 @@
                         <p><%= location.rating %></p>
                         <p><%= location.price %></p>
                         <p><%= location.phone %></p>
-                        
-
-
                         <button onclick="closePop('<%- location.id %>')">Back</button>
+                        <button id="selectLocation" type="button">Select Location</button>
                     </div>
                 </div>
             </div> 
@@ -39,7 +37,6 @@
             // console.log('hi');
             var btn = document.getElementById(type) 
             btn.classList.add("isvisable");
-
         }
     
         var closePop = function(type){
@@ -51,11 +48,6 @@
         </script>
     </main>
     <%- include('../views/footer'); %>
+    <%- include('../views/scripts'); %>
 </body>
 </html>
-
-
-
-
-     
-   
