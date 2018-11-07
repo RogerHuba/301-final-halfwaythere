@@ -4,22 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/location.css">
     <title>Halfway Locations</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav>
+            <h2>logo</h2>
+        </nav>
+    </header>
 
     <main>
         <div class="deck-container">
             <% locations.forEach((location) => { %>
             <div class="card-container">
-                <button>
-                    <h2><%= location.name %></h2>
-                    <div><p><%= location.rating %></p></div>
-                </button>
+                <div class="pop">
+                    <button onclick="myFunc('btn')">
+                        <h2><%= location.name %></h2>
+                        <div><p><%= location.rating %></p></div>
+                    </button>
+                </div>
+                <div class="popup-container" id= "popup">
+                    <div class="popup">
+                        <h1>hi</h1>
+                        <button onclick="closePop()">Back</button>
+                    </div>
+                </div>
+
             </div>
+            
             <%});%>
         </div>
+
+        <script>
+        var btn = document.getElementById("popup")      
+        var myFunc = function(type){
+            console.log('hi');
+            
+            btn.classList.add("isvisable");
+        }
+    
+        var closePop = function(){
+           if(event.currentTarget === event.target){
+             btn.classList.remove("isvisable")
+           }
+        }
+        </script>
     </main>
 
 
@@ -27,3 +58,9 @@
     
 </body>
 </html>
+
+
+
+
+     
+   

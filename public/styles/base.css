@@ -1,26 +1,148 @@
 *{
     padding: 0;
     margin: 0;
-    background-color:#f1f1f1;
-
+    box-sizing: border-box;
 }
 main{
-    display:flex;
-    justify-content: center;
+    background-color:#53787D;
+    /* width: 100vw; */
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 120vw 100vh;
+    
+
+}
+main::after{
+    background-image: url("../img/bg_img.jpg");
+
+    opacity: 0.5;
 }
 
 .main-container{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    width: 100vw;
+    /* padding: 5px; */
+    /* background-color: yellow; */
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 80px;
 }
 h1{
     font-size: 3.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fcce77
+}
+#findBtn{
+    background-color: #fcce77;
+    color: #53787D;
+}
+span{
+    color: #eee7da;
 }
 .home-search-container{
-    display:flex;
+    /* display:flex; */
+    width: 100%;
+    /* background-color: blue; */
+    /* padding: 1px; */
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 input{
     border: none;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px 15px;
+
 }
+
+#currentLocationBtn{
+    background-color: #fff;
+    border:none;
+    width: 100%;
+    height: 40px;
+    color: #53787D;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.or-container{
+    display:flex;
+    align-items:center;
+}
+.line { 
+    width: 100%;
+    border: 1px solid #fcce77;
+}
+.or-container p { 
+    margin: 0 5px;
+    color: #fcce77;
+}
+
+
+
+
+
+
+
+
+
+
+
+select {
+    background-color: red;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 10px 15px;
+    color: black;
+    cursor: pointer;
+
+  }
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: block;
+    /* width: 20em;
+    height: 3em; */
+    line-height: 3;
+    background: #fff;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #ffff;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #f39c12;
+  }
+  .select::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }

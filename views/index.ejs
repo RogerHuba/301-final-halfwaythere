@@ -9,29 +9,38 @@
   <title>Halfway There</title>
 </head>
 <body>
-  <header></header>
+  <header>
+    <nav>
+      <h2>logo</h2>
+    </nav>
+  </header>
 
   <main>
-    <div class = "main-container">
+    <div class="main-container">
       <h1><span>Find</span> Halfway<span>.</span></h1>
       <form action="/location" method="POST">
         <div class="home-search-container ">
-          <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1">
-          <button id="currentLocationBtn" type="button">Current Location</button>
+          <input id="addressOne" name="addressOne" type="text" placeholder="Enter Address 1 or Use Current Location">
+          <div class="or-container">
+            <div class="line"></div><p>OR</p><div class="line"></div>
+          </div>
+
+          <button id="currentLocationBtn" type="button">Use Current Location</button>
         </div>
 
         <input type="text" id="addressTwo" name="addressTwo" placeholder="Enter Address 2" >
 
-
+        <div class ="select">
         <select name="venue" id="venue">
           <option value="cafe">cafe</option>
           <option value="bar">bar</option>
           <option value="pizza">pizza</option>
           <option value="breakfast">breakfast</option>
         </select>
+      </div>
 
 
-        <input id="findBtn" type="submit" value="find halfway">
+        <input id="findBtn" type="submit" value="SEARCH">
 
       </form>
       </div>

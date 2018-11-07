@@ -7,7 +7,6 @@ const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
-const ejs = require('ejs');
 
 // app setup
 const PORT = process.env.PORT || 3000;
@@ -15,7 +14,7 @@ const app = express();
 require('dotenv').config();
 app.set('view engine','ejs');
 
-
+// middleware
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}))
@@ -95,7 +94,6 @@ function grabCurrentAddress(req, res){
 }
 
 function findHalfwayPoint(req, res){
-  // console.log(req.body);
   const URL = `https://maps.googleapis.com/maps/api/directions/json?origin=${req.body.addressOne}&destination=${req.body.addressTwo}&key=${process.env.GEODIRECTIONS_API_KEY}`
   return superagent.get(URL)
   .then(results =>{
@@ -111,20 +109,27 @@ function findHalfwayPoint(req, res){
   })
 }
 
-
 function getYelp(data,req,res){
-  console.log(req);
   const URL =`https://api.yelp.com/v3/businesses/search?term=${data.venue}&latitude=${data.lat}&longitude=${data.lng}`
   return superagent.get(URL)
   .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
   .then(results =>{
   let locationArr = [];
-    // console.log(results.body.businesses[0].location.display_address);
     results.body.businesses.forEach(location =>{
       locationArr.push(new Location(location));
     })
     res.render('locations', {locations: locationArr});
   })
   .catch(handleError);
+}
+
+function save(req, res){
+  let SQL = `
+  INSERT INTO table-name-here
+  (values, go, here)
+  VALUES($1,$2,$3)`;
+  let value = Object.values(req.body);
+  client.query(SQL,value);
+  res.redirect('to whatever page we are on');
 }
 
