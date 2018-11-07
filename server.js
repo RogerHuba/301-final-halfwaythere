@@ -88,27 +88,27 @@ function getHome(req, res){
 function grabCurrentAddress(req, res){
   const URL= `https://maps.googleapis.com/maps/api/geocode/json?latlng=${req.body.latitude},${req.body.longitude}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(URL)
-  .then(address =>{
-    res.send(address.body.results[0].formatted_address);
-  })
-  .catch(handleError)
+    .then(address =>{
+      res.send(address.body.results[0].formatted_address);
+    })
+    .catch(handleError)
 }
 
 function findHalfwayPoint(req, res){
   // console.log(req.body);
   const URL = `https://maps.googleapis.com/maps/api/directions/json?origin=${req.body.addressOne}&destination=${req.body.addressTwo}&key=${process.env.GEODIRECTIONS_API_KEY}`
   return superagent.get(URL)
-  .then(results =>{
-    let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
-    let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
+    .then(results =>{
+      let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
+      let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
    
-    let data ={
-      lat: midLat,
-      lng: midLng,
-      venue: req.body.venue
-    }
-    getYelp(data, req, res);
-  })
+      let data ={
+        lat: midLat,
+        lng: midLng,
+        venue: req.body.venue
+      }
+      getYelp(data, req, res);
+    })
 }
 
 
