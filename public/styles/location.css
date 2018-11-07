@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    background-color:#53787D;
+    height: 100%; 
+    background-color: #f1f1f1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(173,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23f1f1f1'/%3E%3Cstop offset='1' stop-color='%2370b991'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(181,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(301,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg %3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;   
+
+}
+.deck-container{
+    /* background-color: red; */
+    padding: 30px;
+}
+button{
+    height: 60px;
+    width: 100%;
+    border: none;
+    margin: 10px;
+    opacity: .8;
+}
+h2{
+    font-size: 1.8em;
+    width: 75%;
+}
+p{
+    width: 75%;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #53787D;
+    color: #fcce77;
+    
+}
+
+
+
+
+
+/* modal */
+.popup-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 00;
+    left: 0;
+    background-color: rgba(0,0,0,.75);
+    
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+  
+  }
+  
+  .popup{
+    background-color: #f2f2f2;
+    width: 100vw;
+    height: 100vh;
+    padding: 30px;
+    z-index: 100;
+  }
+  
+  .popup input[type = submit]{
+    margin-top: 15px;
+  }
+  
+  .isvisable{
+    visibility:visible !important;
+    
+  }
+  
+  .modal-body img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
