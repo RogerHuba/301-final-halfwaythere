@@ -22,9 +22,9 @@
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.6",
     "geolocation": "^0.2.0",
     "jquery": "^3.3.1",
+    "nodemon": "^1.18.6",
     "pg": "^7.6.0",
     "superagent": "^4.0.0-beta.5"
   },
