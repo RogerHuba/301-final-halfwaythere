@@ -129,7 +129,7 @@ function getYelp(data,req,res){
       locationArr.push(new Location(location));
     })
     let imgSrc ={
-      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.midLat},${data.midLng}&zoom=auto&size=450x600&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
+      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.lng}&zoom=auto&size=450x600&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
       imgKey: `&key=${process.env.MAP_API_KEY}`
     }
     res.render('locations', {locations: locationArr, coords: imgSrc});
