@@ -141,17 +141,17 @@ function findHalfwayPoint(req, res){
 function getYelp(data,req,res){
   const URL =`https://api.yelp.com/v3/businesses/search?term=${data.venue}&latitude=${data.lat}&longitude=${data.lng}`
   return superagent.get(URL)
-  .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
-  .then(results =>{
-  let locationArr = [];
-    results.body.businesses.forEach(location =>{
-      locationArr.push(new Location(location));
-    })
-    let imgSrc ={
-      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.lng}&zoom=auto&size=450x550&maptype=roadmap&markers=color:yellow%7Clabel:1%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:2%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:X%7C`,
-      imgKey: `&key=${process.env.MAP_API_KEY}`
-    }
-    res.render('locations', {locations: locationArr, coords: imgSrc});
+    .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
+    .then(results =>{
+      let locationArr = [];
+      results.body.businesses.forEach(location =>{
+        locationArr.push(new Location(location));
+      })
+      let imgSrc ={
+        imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.lng}&zoom=auto&size=450x550&maptype=roadmap&markers=color:yellow%7Clabel:1%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:2%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:X%7C`,
+        imgKey: `&key=${process.env.MAP_API_KEY}`
+      }
+      res.render('locations', {locations: locationArr, coords: imgSrc});
     })
     .catch(handleError);
 
