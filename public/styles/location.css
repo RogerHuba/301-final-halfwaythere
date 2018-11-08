@@ -24,7 +24,8 @@ button{
     width: 100%;
     border: none;
     margin: 10px;
-    opacity: .8;
+    z-index: 50;
+    /* opacity: .8; */
 }
 h2{
     font-size: 1.8em;
