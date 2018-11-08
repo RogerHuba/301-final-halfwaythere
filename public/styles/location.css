@@ -116,7 +116,7 @@ h4{
 
 /* modal */
 .popup-container{
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     bottom: 0;
     right: 00;
