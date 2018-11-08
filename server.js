@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}))
 // psql db
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
-client.on('err', err => console.log(err)); 
+client.on('err', err => console.log(err));
 
 
 app.listen(PORT, ()=>{console.log(`app is running on ${PORT}`)});
@@ -56,15 +56,15 @@ function Location(data){
   this.name = data.name ? data.name : 'No data Found';
   // this.isClosed = data.hours[x].is_open_now ? data.is_closed : 'No Data Found';
   this.img_url = data.image_url ? data.image_url : 'No data Found';
-  this.yelp_url = data.url ? data.url : 'No data Found'; 
+  this.yelp_url = data.url ? data.url : 'No data Found';
   this.info = data.categories[0].title ? data.categories[0].title : 'No data Found';
   this.rating = data.rating ? data.rating : 'No data Found';
   this.price = data.price ? data.price : 'No data Found';
   this.address = data.location.display_address ? data.location.display_address : 'No data Found';
   this.phone = data.phone ? data.phone : 'No data Found';
 
-  this.id = data.name.replace(/\s/g, "");
-  
+  this.id = data.name.replace(/\s/g, '');
+
 }
 
 function getData(request, response) {
@@ -101,7 +101,7 @@ function findHalfwayPoint(req, res){
     .then(results =>{
       let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
       let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
-   
+
       let data ={
         lat: midLat,
         lng: midLng,
@@ -114,16 +114,16 @@ function findHalfwayPoint(req, res){
 function getYelp(data,req,res){
   const URL =`https://api.yelp.com/v3/businesses/search?term=${data.venue}&latitude=${data.lat}&longitude=${data.lng}`
   return superagent.get(URL)
-  .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
-  .then(results =>{
-  let locationArr = [];
-    results.body.businesses.forEach(location =>{
-      locationArr.push(new Location(location));
+    .set({'Authorization' : `Bearer ${process.env.YELP_API_KEY}`})
+    .then(results =>{
+      let locationArr = [];
+      results.body.businesses.forEach(location =>{
+        locationArr.push(new Location(location));
+      })
+      res.render('locations', {locations: locationArr});
+      console.log(locationArr);
     })
-    res.render('locations', {locations: locationArr});
-    console.log(locationArr);
-  })
-  .catch(handleError);
+    .catch(handleError);
 }
 
 function save(req, res){
