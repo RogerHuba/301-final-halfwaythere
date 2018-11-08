@@ -50,6 +50,8 @@ app.get('/history', getData);
 
 app.delete('/history/:id', deleteHistory)
 
+app.get('/about', getAbout);
+
 function testRoute (request,response) {
   console.log('here');
 }
@@ -98,6 +100,10 @@ function handleError (err, res) {
 
 function getHome(req, res){
   res.render('index');
+}
+
+function getAbout(req, res){
+  res.render('about');
 }
 
 function grabCurrentAddress(req, res){
