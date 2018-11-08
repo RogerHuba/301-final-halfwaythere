@@ -5,6 +5,7 @@
     box-sizing: border-box;
     color: #53787D;
     font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
 }
 main{
     background-color:#53787D;
@@ -84,7 +85,6 @@ h4{
     color: #53787D;
     opacity: 1;
     width: 90%;
-
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px rgba(0,0,0,.3);
     
@@ -140,7 +140,7 @@ h4{
       background-attachment: fixed;
       background-size: cover; 
     width: 100vw;
-    height: 100%;
+    height: 120%;
     /* padding: 30px; */
     z-index: 90;
   }
