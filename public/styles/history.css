@@ -5,3 +5,14 @@ img{
 section{
     background-color:red;
 }
+.historyImg{
+    width: 100%;
+}
+.smaller-container{
+    display:flex;
+    justify-content: center;
+    padding: 10px;
+}
+#info{
+    padding: 10px;
+}
