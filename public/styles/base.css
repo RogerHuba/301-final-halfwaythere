@@ -16,6 +16,7 @@ main{
     background-size: cover; */
 
 }
+
 main::after{
     background-image: url("../img/bg_img.jpg");
 
@@ -34,19 +35,23 @@ main::after{
     padding: 20px;
     padding-top: 70px;
 }
+
 h1{
     font-size: 3.5em;
     margin-bottom: 30px;
     text-align: center;
     color: #fcce77
 }
+
 #findBtn{
     background-color: #fcce77;
     color: #53787D;
 }
+
 span{
     color: #eee7da;
 }
+
 .home-search-container{
     /* display:flex; */
     width: 100%;
@@ -84,32 +89,26 @@ input{
     display:flex;
     align-items:center;
 }
+
 .line { 
     width: 100%;
     border: 1px solid #fcce77;
 }
+
 .or-container p { 
     margin: 0 5px;
     color: #fcce77;
 }
 
-/* nav */
-nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #53787D;
-    color: #fcce77;
-    
-}
-
-
-
-
-
-
-
-
+/* .click-details-hidden {
+    visibility: hidden;
+    display: none;
+  }
+  
+  .click-details-visible {
+    visibility: visible;
+    display: block;
+  } */
 
 select {
     background-color: red;
@@ -123,8 +122,8 @@ select {
     padding: 10px 15px;
     color: black;
     cursor: pointer;
-
   }
+
   /* Custom Select */
   .select {
     position: relative;
