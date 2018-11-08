@@ -12,9 +12,6 @@ function getCoords(){
 }
 
 function grabCurrentAddress(position){
-    // console.log('hi');
-    // console.log(position.coords.latitude);
-    // console.log(position.coords.longitude);
     $.post( "/address", { latitude: position.coords.latitude, longitude: position.coords.longitude } )
     .then(result =>{
         $('#addressOne').val(result);
@@ -34,3 +31,9 @@ function grabCurrentAddress(position){
 function saveYelpData(event, req, res) {
     event.preventDefault();
 }
+
+function displayMap(location) {
+    $.get('locations')
+  }
+
+  

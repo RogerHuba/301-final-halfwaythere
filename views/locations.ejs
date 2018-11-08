@@ -6,7 +6,9 @@
         <%- include('../views/header'); %>
     <main>
         <div class="deck-container">
+                <% console.log(coords) %>
             <% locations.forEach((location) => { %>
+                
             <div class="card-container">
                 <div class="pop">
                     <button onclick="myFunc('<%- location.id %>')">
@@ -24,6 +26,8 @@
                         <p><%= location.rating %></p>
                         <p><%= location.price %></p>
                         <p><%= location.phone %></p>
+                        <img src="<%-coords.imgSrc %><%- location.lat %>,<%-location.lng %><%-coords.imgKey %>" alt="Map">
+
                         <button onclick="closePop('<%- location.id %>')">Back</button>
                         <button id="selectLocation" type="button">Select Location</button>
                     </div>
@@ -32,8 +36,7 @@
             <%});%>
         </div>
         <script>
-        console.log(location)
-             
+
         var myFunc = function(type){
             // console.log('hi');
             var btn = document.getElementById(type) 
@@ -46,6 +49,7 @@
             btn.classList.remove("isvisable")
         //    }
         }
+
         </script>
     </main>
     <%- include('../views/footer'); %>
