@@ -13,15 +13,20 @@
         <% results.forEach( item => { %>
           <li>
             <section>
-              <img src="<%= item.image_url %>">
-              <h2><%= item.name %></h2>
-              <p><%= item.img_url %></p>
-              <p><%= item.yelp_url %></p>
-              <p><%= item.info %></p>
-              <p><%= item.rating %></p>
-              <p><%= item.price %></p>
-              <p><%= item.address %></p>
-              <p><%= item.phone %></p>
+                <h2><%= location.name %></h2>
+              <div class="smaller-container">
+                <img class="historyImg" src="<%= item.image_url %>">
+
+                <div class="info">
+                    <h4><%= location.info %></h4>
+                    <p>Rating 0-5: <%= location.rating %></p>
+                    <p>Price: <%= location.price %></p>
+                    <p>Phone: <%= location.phone %></p>
+                    <p><%= item.yelp_url %></p>
+                    <p><%= location.address %></p>
+                </div>
+              </div>
+
               <form action="/history/<%= item.id %>" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="name" value='<%= item.name %>'>

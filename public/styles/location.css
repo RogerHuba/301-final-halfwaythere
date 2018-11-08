@@ -21,7 +21,7 @@ main{
     padding: 30px;
 }
 button{
-    color: #fff !important;
+    background-color: #fff !important;
     height: 60px;
     width: 100%;
     border: none;
