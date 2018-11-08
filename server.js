@@ -62,12 +62,6 @@ function handleError (err, res) {res
   // res.redirect('/error');
 }
 
-// render error page
-// function renderError(req,res){
-//   res.render('./pages/error');
-// }
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 function Location(data){
@@ -122,8 +116,6 @@ function findHalfwayPoint(req, res){
       let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
       let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
 
-      // console.log(`midLat = ${midLat}`);
-      // console.log(`midLng = ${midLng}`);
 
       let data ={
         lat: midLat,
@@ -133,7 +125,7 @@ function findHalfwayPoint(req, res){
         lng1: results.body.routes[0].legs[0].start_location.lng,
         lat2: results.body.routes[0].legs[0].end_location.lat,
         lng2: results.body.routes[0].legs[0].end_location.lng,
-        imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${midLat},${midLng}&zoom=10&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${results.body.routes[0].legs[0].start_location.lat},${results.body.routes[0].legs[0].start_location.lng}&markers=color:green%7Clabel:G%7C${results.body.routes[0].legs[0].end_location.lat},${results.body.routes[0].legs[0].end_location.lng}&markers=color:red%7Clabel:C%7C${midLat},${midLng}&key=${process.env.MAP_API_KEY}`
+        imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${midLat},${midLng}&zoom=10&size=600x300&maptype=roadmap&markers=color:#53787D%7Clabel:S%7C${results.body.routes[0].legs[0].start_location.lat},${results.body.routes[0].legs[0].start_location.lng}&markers=color:green%7Clabel:G%7C${results.body.routes[0].legs[0].end_location.lat},${results.body.routes[0].legs[0].end_location.lng}&markers=color:red%7Clabel:C%7C${midLat},${midLng}&key=${process.env.MAP_API_KEY}`
 
       }
       getYelp(data, req, res);
@@ -150,11 +142,10 @@ function getYelp(data,req,res){
       locationArr.push(new Location(location));
     })
     let imgSrc ={
-      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.lng}&zoom=auto&size=450x550&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
+      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.lng}&zoom=auto&size=450x550&maptype=roadmap&markers=color:yellow%7Clabel:1%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:2%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:X%7C`,
       imgKey: `&key=${process.env.MAP_API_KEY}`
     }
     res.render('locations', {locations: locationArr, coords: imgSrc});
-    // console.log(locationArr);
     })
     .catch(handleError);
 
@@ -164,10 +155,8 @@ function getYelp(data,req,res){
 
 function createHistory(request, response) {
   let {name, image_url, yelp_url, info, rating, price, address, phone} = request.body;
-  console.log(request.body);
   let SQL = 'INSERT INTO yelp (name, image_url, yelp_url, info, rating, price, address, phone) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id;';
   let value = [name, image_url, yelp_url, info, rating, price, address, phone];
-  console.log(SQL, value);
   client.query(SQL, value)
     .then(result => response.redirect('/'))
     .catch(error => handleError({errorMessage: error}, response));
@@ -183,8 +172,6 @@ function getData(request, response) {
 }
 
 function deleteHistory(request, response) {
-  console.log(request.body);
-  let SQL = `DELETE FROM yelp where id=${request.body.id};`
   client.query(SQL)
     .then(result => response.redirect('/history'))
     .catch(error => handleError({errorMessage: error}, response));
