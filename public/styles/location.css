@@ -21,12 +21,13 @@ main{
     padding: 30px;
 }
 button{
+    color: #fff !important;
     height: 60px;
     width: 100%;
     border: none;
     margin: 10px;
     z-index: 50;
-    /* opacity: .8; */
+    opacity: 1;
     -webkit-appearance: none;
 }
 h2{
@@ -99,12 +100,13 @@ h4{
 }
 .info-container{
     position: absolute;
-    background-color:#fff !important;
+    background-color:#fff;
     box-shadow: 0 0 10px 5px rgba(128, 128, 128, .3);
     margin:20px;
     border-radius: 10px;
     padding-top:10px;
     height: 100%;
+    opacity: 1 !important;
 }
 
 .popbtns{
