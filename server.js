@@ -62,6 +62,8 @@ function Location(data){
   this.price = data.price ? data.price : 'No data Found';
   this.address = data.location.display_address ? data.location.display_address : 'No data Found';
   this.phone = data.phone ? data.phone : 'No data Found';
+  this.lat = data.coordinates.latitude;
+  this.lng = data.coordinates.longitude;
 
   this.id = data.name.replace(/\s/g, '');
 
@@ -105,7 +107,13 @@ function findHalfwayPoint(req, res){
       let data ={
         lat: midLat,
         lng: midLng,
-        venue: req.body.venue
+        venue: req.body.venue,
+        lat1: results.body.routes[0].legs[0].start_location.lat,
+        lng1: results.body.routes[0].legs[0].start_location.lng,
+        lat2: results.body.routes[0].legs[0].end_location.lat,
+        lng2: results.body.routes[0].legs[0].end_location.lng,
+        imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${midLat},${midLng}&zoom=10&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${results.body.routes[0].legs[0].start_location.lat},${results.body.routes[0].legs[0].start_location.lng}&markers=color:green%7Clabel:G%7C${results.body.routes[0].legs[0].end_location.lat},${results.body.routes[0].legs[0].end_location.lng}&markers=color:red%7Clabel:C%7C${midLat},${midLng}&key=${process.env.MAP_API_KEY}`
+      
       }
       getYelp(data, req, res);
     })
@@ -123,12 +131,24 @@ function getYelp(data,req,res){
       res.render('locations', {locations: locationArr});
       console.log(locationArr);
     })
-    .catch(handleError);
+
+    let imgSrc ={
+      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.midLat},${data.midLng}&zoom=auto&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
+      imgKey: `&key=${process.env.MAP_API_KEY}`
+    }
+    res.render('locations', {locations: locationArr, coords: imgSrc});
+    // console.log(locationArr);
+  })
+  .catch(handleError);
+
 }
 
 function save(req, res){
-  let SQL = `INSERT INTO yelp (name, url, price, image_url, rating) VALUES($1,$2,$3,$4,$5,$6)`;
+  let SQL = `INSERT INTO yelp (name, image_url, yelp_url, info, rating, price, address, location, phone) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`;
+  console.log(SQL);
   let value = Object.values(req.body);
   client.query(SQL,value);
   // res.redirect('to whatever page we are on');
 }
+
+
