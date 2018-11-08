@@ -103,7 +103,8 @@ function findHalfwayPoint(req, res){
     .then(results =>{
       let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
       let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
-   
+      console.log(`midLat = ${midLat}`);
+      console.log(`midLng = ${midLng}`);
       let data ={
         lat: midLat,
         lng: midLng,
