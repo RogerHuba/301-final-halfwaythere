@@ -7,13 +7,13 @@ CREATE DATABASE halfwaythere;
 CREATE TABLE yelp (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-     boolean,
     image_url VARCHAR(255),
     yelp_url VARCHAR(255),
     info TEXT,
     rating NUMERIC(2,1),
     price VARCHAR(255),
     address VARCHAR(255),
+    location VARCHAR(255),
     phone VARCHAR(255)
 );
 
@@ -29,8 +29,8 @@ CREATE TABLE history (
     yelp_id INTEGER NOT NULL REFERENCES yelp(id)
 );
 
-INSERT INTO yelp (name, url, price, image_url,rating) 
-VALUES ('test shop', false, 'http://google.maps.com', '$$', 'image.com', 5);
+INSERT INTO yelp (name, image_url, yelp_url, info, rating, price, address, location, phone) 
+VALUES ('test shop','http://google.maps.com', 'https://www.yelp.com/biz/the-pink-door-seattle-4','Blah Blah Blab about this place.  I do not want to write anything else here.  Suck it', 5, '$$', '1234 Local', '4321 Local seattle wa', '206-302-1432');
 
 INSERT INTO users (user_name, mobile_number) 
 VALUES ('Ray', 7812498879);
