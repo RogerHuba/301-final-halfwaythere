@@ -156,19 +156,7 @@ function getYelp(data,req,res){
       res.render('locations', {locations: locationArr, coords: imgSrc});
     // console.log(locationArr);
     })
-
-      res.render('locations', {locations: locationArr});
-      console.log(locationArr);
-    })
-
-    let imgSrc ={
-      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.midLat},${data.midLng}&zoom=auto&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
-      imgKey: `&key=${process.env.MAP_API_KEY}`
-    }
-    res.render('locations', {locations: locationArr, coords: imgSrc});
-    // console.log(locationArr);
-  })
-  .catch(handleError);
+    .catch(handleError);
 
 }
 
