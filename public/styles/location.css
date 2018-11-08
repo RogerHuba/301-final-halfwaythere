@@ -27,6 +27,7 @@ button{
     margin: 10px;
     z-index: 50;
     /* opacity: .8; */
+    -webkit-appearance: none;
 }
 h2{
     font-size: 1.8em;
@@ -81,7 +82,7 @@ h4{
     height: 50px;
     color: #53787D;
     opacity: 1;
-    /* width: 40%; */
+    /* width: 80%; */
 
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px rgba(0,0,0,.3);
@@ -92,7 +93,7 @@ h4{
     height: 50px;
     color: #53787D;
     opacity: 1;
-    /* width: 40%; */
+    /* width: 100%; */
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
@@ -154,4 +155,7 @@ h4{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  }
+  form{
+      width: 100%;
   }
