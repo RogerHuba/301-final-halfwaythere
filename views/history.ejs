@@ -13,17 +13,18 @@
         <% results.forEach( item => { %>
           <li>
             <section>
-                <h2><%= location.name %></h2>
               <div class="smaller-container">
-                <img class="historyImg" src="<%= item.image_url %>">
+                <img class="historyImg" src="<%- item.image_url %>">
+                <h2><%= item.name %></h2>
+                <h4><%= item.info %></h4>
 
                 <div class="info">
-                    <h4><%= location.info %></h4>
-                    <p>Rating 0-5: <%= location.rating %></p>
-                    <p>Price: <%= location.price %></p>
-                    <p>Phone: <%= location.phone %></p>
+                    
+                    <p>Rating 0-5: <%= item.rating %></p>
+                    <p>Price: <%= item.price %></p>
+                    <p>Phone: <%= item.phone %></p>
                     <p><%= item.yelp_url %></p>
-                    <p><%= location.address %></p>
+                    <p><%= item.address %></p>
                 </div>
               </div>
 
@@ -38,12 +39,14 @@
                 <input type="hidden" name="address" value='<%= item.address %>'>
                 <input type="hidden" name="phone" value='<%= item.phone %>'>
                 <input type="hidden" name="id" value='<%= item.id %>'>
-                <button type="submit" id="selectLocation">Clear History</button>
+                <button type="submit" id="selectLocation">REMOVE</button>
             </form>
           </section>
           </li>
           <% }) %>
       </ul>
     </main>
+    <%- include('../views/footer'); %>
+    <%- include('../views/scripts'); %>
   </body>
 </html>

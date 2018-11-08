@@ -79,7 +79,7 @@ h4{
 
 
 #back{
-    background-color: #FCCE77;
+    background-color: #FCCE77 !important;
     height: 50px;
     color: #53787D;
     opacity: 1;
@@ -90,7 +90,7 @@ h4{
     
 }
 #selectLocation{
-    background-color: #FCCE77;
+    background-color: #FCCE77 !important;
     height: 50px;
     color: #53787D;
     opacity: 1;
