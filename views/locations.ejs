@@ -13,23 +13,32 @@
                 <div class="pop">
                     <button onclick="myFunc('<%- location.id %>')">
                         <h2><%= location.name %></h2>
-                        <div><p><%= location.rating %></p></div>
+                        <div><p>Rating: <%= location.rating %></p></div>
                     </button>
                 </div>
                 <div class="popup-container" id= "<%- location.id %>">
-                    <div class="popup">
-                        <h2><%= location.name %></h2>
-                        <h3><%= location.isClosed %></h3>
-                        <img src="<%-location.img_url %>" alt="location image">
-                        <h4><%= location.info %></h4>
-                        <h4><%= location.address %></h4>
-                        <p><%= location.rating %></p>
-                        <p><%= location.price %></p>
-                        <p><%= location.phone %></p>
-                        <img src="<%-coords.imgSrc %><%- location.lat %>,<%-location.lng %><%-coords.imgKey %>" alt="Map">
-
-                        <button onclick="closePop('<%- location.id %>')">Back</button>
-                        <button id="selectLocation" type="button">Select Location</button>
+                    <div class="popup" >
+                        <img id="map" src="<%-coords.imgSrc %><%- location.lat %>,<%-location.lng %><%-coords.imgKey %>" alt="Map">
+                        
+                        <div class="info-container">
+                            <h2><%= location.name %></h2>
+                            <div class="smaller-container">
+                                <img id="pic" src="<%-location.img_url %>" alt="location image">
+                                <div class="info">
+                                    <h4><%= location.info %></h4>
+                                    <p>Rating 0-5: <%= location.rating %></p>
+                                    <p>Price: <%= location.price %></p>
+                                    <p>Phone: <%= location.phone %></p>
+                                    <p><%= location.address %></p>
+                                </div>
+                            </div>
+                            <div class="popbtns">
+                                    <button id="back" onclick="closePop('<%- location.id %>')">BACK</button>
+                                    <button id="selectLocation" type="button">SELECT LOCATION</button>
+                            </div>
+                        </div>
+                    
+                        
                     </div>
                 </div>
             </div> 

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,900');
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-size: 16px; */
+}
+h6{
+    font-size: 1.2em;
+    color: #FCCE77;
+    font-family: 'Nunito', sans-serif, bold;
+}
+
+.nav {
+    padding-top: 10px;
+    background: #53787D;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.nav .dots i {
+  color: #FCCE77;
+  font-size: 1.5rem;
+
+}
+
+.nav .dots i:hover {
+  color: #FCCE77;
+  transition: color 0.3s;
+}
+
+.nav .main-nav .hamburger-nav::after {
+  font-size: 1.5rem;
+  top: 11px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.nav .main-nav .menu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 64%;
+  padding-left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.nav .main-nav .menu a {
+  display: block;
+  background: #FCCE77;
+  text-decoration: none;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 0.5px solid rgba(200, 200, 200, 0.2);
+}
+
+.nav .main-nav .menu a:hover {
+  background: white;
+  transition: background 0.3s ease;
+}
+
+.nav .main-nav .menu a:hover li {
+  color: #FCCE77;
+}
+
+.nav .main-nav .menu a li {
+  color: #53787D;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+i{
+    color: #FCCE77;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
