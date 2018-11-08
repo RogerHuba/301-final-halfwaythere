@@ -121,8 +121,10 @@ function findHalfwayPoint(req, res){
     .then(results =>{
       let midLat = ((results.body.routes[0].legs[0].start_location.lat + results.body.routes[0].legs[0].end_location.lat)/2);
       let midLng = ((results.body.routes[0].legs[0].start_location.lng + results.body.routes[0].legs[0].end_location.lng)/2);
+
       // console.log(`midLat = ${midLat}`);
       // console.log(`midLng = ${midLng}`);
+
       let data ={
         lat: midLat,
         lng: midLng,
@@ -154,7 +156,20 @@ function getYelp(data,req,res){
       res.render('locations', {locations: locationArr, coords: imgSrc});
     // console.log(locationArr);
     })
-    .catch(handleError);
+
+      res.render('locations', {locations: locationArr});
+      console.log(locationArr);
+    })
+
+    let imgSrc ={
+      imgSrc: `https://maps.googleapis.com/maps/api/staticmap?center=${data.midLat},${data.midLng}&zoom=auto&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${data.lat1},${data.lng1}&markers=color:green%7Clabel:G%7C${data.lat2},${data.lng2}&markers=color:red%7Clabel:C%7C`,
+      imgKey: `&key=${process.env.MAP_API_KEY}`
+    }
+    res.render('locations', {locations: locationArr, coords: imgSrc});
+    // console.log(locationArr);
+  })
+  .catch(handleError);
+
 }
 
 
