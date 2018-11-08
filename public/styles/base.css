@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,900');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 main{
     background-color:#53787D;
     width: 100vw;
     height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(173,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23f1f1f1'/%3E%3Cstop offset='1' stop-color='%2370b991'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(181,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(301,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg %3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; 
     /* background-repeat: no-repeat;
     background-size: auto;
     background-size: 120vw 100vh; */
@@ -40,12 +46,14 @@ h1{
     font-size: 3.5em;
     margin-bottom: 30px;
     text-align: center;
-    color: #fcce77
+    color: #fcce77;
+    font-family: 'Nunito', sans-serif, bold;
 }
 
 #findBtn{
     background-color: #fcce77;
     color: #53787D;
+    font-size: 1em;
 }
 
 span{
@@ -82,6 +90,7 @@ input{
     color: #53787D;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: #fcce77;
 
 }
 
