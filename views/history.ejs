@@ -1,0 +1,40 @@
+<!DOCTYPE HTML5>
+<html>
+  <body>
+
+    <main>
+
+      <ul class="db-results">
+
+        <% results.forEach( item => { %>
+          <li>
+            <section>
+              <img src="<%= item.image_url %>">
+              <h2><%= item.name %></h2>
+              <p><%= item.img_url %></p>
+              <p><%= item.yelp_url %></p>
+              <p><%= item.info %></p>
+              <p><%= item.rating %></p>
+              <p><%= item.price %></p>
+              <p><%= item.address %></p>
+              <p><%= item.phone %></p>
+              <form action="/history/<%= item.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="name" value='<%= item.name %>'>
+                <input type="hidden" name="image_url" value='<%= item.img_url %>'>
+                <input type="hidden" name="yelp_url" value='<%= item.yelp_url %>'>
+                <input type="hidden" name="info" value='<%= item.info %>'>
+                <input type="hidden" name="rating" value='<%= item.rating %>'>
+                <input type="hidden" name="price" value='<%= item.price %>'>
+                <input type="hidden" name="address" value='<%= item.address %>'>
+                <input type="hidden" name="phone" value='<%= item.phone %>'>
+                <input type="hidden" name="id" value='<%= item.id %>'>
+                <button type="submit" id="selectLocation">Clear History</button>
+            </form>
+          </section>
+          </li>
+          <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>
