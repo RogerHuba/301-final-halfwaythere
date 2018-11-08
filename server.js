@@ -172,6 +172,8 @@ function getData(request, response) {
 }
 
 function deleteHistory(request, response) {
+  console.log(request.body);
+  let SQL = `DELETE FROM yelp where id=${request.body.id};`
   client.query(SQL)
     .then(result => response.redirect('/history'))
     .catch(error => handleError({errorMessage: error}, response));
