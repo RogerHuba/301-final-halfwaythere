@@ -14,7 +14,7 @@ main{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(173,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23f1f1f1'/%3E%3Cstop offset='1' stop-color='%2370b991'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(181,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(301,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg %3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;   
-    z-index: 1;
+    /* z-index: 1; */
 
 }
 .deck-container{
@@ -44,8 +44,10 @@ h2{
     color: #fcce77;
 } */
 #map{
-    position: relative;
+    margin-top:30px;
+    /* margin-top: 10px; */
     width: 100%;
+    /* height: 100%; */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     /* height: 500px; */
@@ -99,14 +101,17 @@ h4{
     text-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 .info-container{
-    position: absolute;
+    position: relative;
+    top: -40px;
     background-color:#fff;
     box-shadow: 0 0 10px 5px rgba(128, 128, 128, .3);
     margin:20px;
     border-radius: 10px;
     padding-top:10px;
-    height: 100%;
+    /* height: 100%; */
+    width:90%;
     opacity: 1 !important;
+    margin-right: 10px;
 }
 
 .popbtns{
@@ -134,15 +139,14 @@ h4{
   }
   
   .popup{
-      position: fixed;
-      /* position: absolute; */
+      /* position: fixed; */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(173,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23f1f1f1'/%3E%3Cstop offset='1' stop-color='%2370b991'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(181,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(301,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2353787d' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2353787d' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg %3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
       background-attachment: fixed;
       background-size: cover; 
-    width: 100vw;
-    height: 120%;
+    width: 100%;
+    height: 100%;
     /* padding: 30px; */
-    z-index: 90;
+    /* z-index: 90; */
   }
   
   .popup input[type = submit]{
