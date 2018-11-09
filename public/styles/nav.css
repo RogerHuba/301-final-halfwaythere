@@ -5,24 +5,30 @@
   padding: 0;
   /* font-size: 16px; */
 }
+
 h6{
     font-size: 1.2em;
     color: #FCCE77;
     font-family: 'Nunito', sans-serif, bold;
+    padding-top: 5px;
 }
 
 .nav {
+    /* overflow: hidden; */
+    position: fixed;
+    top: 0;
     padding-top: 10px;
     background: #53787D;
     position: relative;
     display: flex;
     justify-content: space-between;
     z-index: 1000;
+    padding: 2px;
     
 }
 
 .nav .dots i {
-  color: #FCCE77;
+  color: #53787D;
   font-size: 1.5rem;
 
 }
