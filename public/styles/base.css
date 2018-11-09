@@ -43,7 +43,7 @@ main::after{
 }
 
 h1{
-    font-size: 3.5em;
+    font-size: 3.2em;
     margin-bottom: 30px;
     text-align: center;
     color: #fcce77;
@@ -54,6 +54,8 @@ h1{
     background-color: #fcce77;
     color: #53787D;
     font-size: 1em;
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 
 span{
@@ -79,6 +81,8 @@ input{
     height: 40px;
     margin: 10px 0;
     padding: 10px 15px;
+    font-size: 16px;
+    
 
 }
 
@@ -131,6 +135,12 @@ select {
     padding: 10px 15px;
     color: black;
     cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  option{
+    -webkit-appearance: none;
+    border-radius: 0;
   }
 
 

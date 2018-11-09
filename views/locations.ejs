@@ -6,7 +6,7 @@
         <%- include('../views/header'); %>
     <main>
         <div class="deck-container">
-                <% console.log(coords) %>
+                
             <% locations.forEach((location) => { %>
                 
             <div class="card-container">
@@ -32,7 +32,9 @@
                                         <p>Phone: <%= location.phone %></p>
                                         <p><%= location.address %></p>
                                     </div>
+
                                 </div>
+                                    
                                 <div class="popbtns">
                                         <button id="back" onclick="closePop('<%- location.id %>')">Back</button>
                                         <form action="/history" method="POST">
@@ -46,32 +48,42 @@
                                             <input type="hidden" name="phone" value='<%= location.phone %>'>
                                             <button type="submit" id="selectLocation">Select Location</button>
                                         </form>     
+                                        
                                 </div>
+                                
                             </div>
+                        
                     </div>
                 </div>
             </div> 
             <%});%>
         </div>
-        <script>
-
-        var myFunc = function(type){
-            // console.log('hi');
-            var btn = document.getElementById(type) 
-            btn.classList.add("isvisable");
-            window.scrollTo(0, 0);
-        }
-    
-        var closePop = function(type){
-        //    if(event.currentTarget === event.target){
-            var btn = document.getElementById(type) 
-            btn.classList.remove("isvisable")
-        //    }
-        }
-
-        </script>
+       
     </main>
+    <script>
+        $( document ).ready(function() {
+    var clipboard = new Clipboard('.clipboard');
+  });
+
+            var myFunc = function(type){
+                // console.log('hi');
+                var btn = document.getElementById(type) 
+                btn.classList.add("isvisable");
+                window.scrollTo(0, 0);
+            }
+        
+            var closePop = function(type){
+            //    if(event.currentTarget === event.target){
+                var btn = document.getElementById(type) 
+                btn.classList.remove("isvisable")
+            //    }
+            }
+    
+    </script>
+    
     <%- include('../views/footer'); %>
     <%- include('../views/scripts'); %>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    
 </body>
 </html>
