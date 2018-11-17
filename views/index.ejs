@@ -4,8 +4,10 @@
   <%- include('../views/head', {page_title:"HalfWayThere"}); %>
   <link rel="stylesheet" href="styles/base.css">
 <body>
-  <%- include('../views/header'); %>
+  
   <main>
+      <%- include('../views/header'); %>
+
     <div class="main-container">
       <h1><span>Find</span> Halfway<span>.</span></h1>
       <form action="/location" method="POST">
