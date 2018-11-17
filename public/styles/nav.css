@@ -17,13 +17,14 @@ h6{
     /* overflow: hidden; */
     position: fixed;
     top: 0;
-    padding-top: 10px;
+    padding: 10px 0;
+    /* padding-top: 10px; */
     background: #53787D;
     position: relative;
     display: flex;
     justify-content: space-between;
     z-index: 1000;
-    padding: 2px;
+    /* padding: 2px; */
     
 }
 
@@ -38,21 +39,15 @@ h6{
   transition: color 0.3s;
 }
 
-.nav .main-nav .hamburger-nav::after {
-  font-size: 1.5rem;
-  top: 11px;
-  right: 20px;
-  cursor: pointer;
-}
-
 .nav .main-nav .menu {
   display: none;
   list-style: none;
   position: absolute;
-  top: 64%;
-  padding-left: 0;
-  width: 100%;
+  top: 100%;
+  right: 0;
+  left: 0;
   overflow: hidden;
+
 }
 
 .nav .main-nav .menu a {
