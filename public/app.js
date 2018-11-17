@@ -54,6 +54,6 @@ $(document).ready(function(){
 
 });
 
-$( document ).ready(function() {
-    var clipboard = new Clipboard('.clipboard');
-  });
+// $( document ).ready(function() {
+//     var clipboard = new Clipboard('.clipboard');
+//   });

@@ -164,7 +164,7 @@ function createHistory(request, response) {
   let SQL = 'INSERT INTO yelp (name, image_url, yelp_url, info, rating, price, address, phone) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id;';
   let value = [name, image_url, yelp_url, info, rating, price, address, phone];
   client.query(SQL, value)
-    .then(result => response.redirect('/'))
+    .then(result => console.log(result))
     .catch(error => handleError({errorMessage: error}, response));
 }
 

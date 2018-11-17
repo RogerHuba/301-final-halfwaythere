@@ -34,7 +34,7 @@
                                     </div>
 
                                 </div>
-                                    
+
                                 <div class="popbtns">
                                         <button id="back" onclick="closePop('<%- location.id %>')">Back</button>
                                         <form action="/history" method="POST">
@@ -46,7 +46,10 @@
                                             <input type="hidden" name="price" value='<%= location.price %>'>
                                             <input type="hidden" name="address" value='<%= location.address %>'>
                                             <input type="hidden" name="phone" value='<%= location.phone %>'>
-                                            <button type="submit" id="selectLocation">Select Location</button>
+                                            <div class="select-container">
+                                                <button type="submit" id="selectLocation" onclick="tooltip()" class="clipboard" data-clipboard-action="copy" data-clipboard-text="<%- location.address %>">Select Location</button>
+                                                <div class="toolTip">Copied!</div>
+                                            </div>
                                         </form>     
                                         
                                 </div>
@@ -58,17 +61,27 @@
             </div> 
             <%});%>
         </div>
+        
        
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script>
-        $( document ).ready(function() {
-    var clipboard = new Clipboard('.clipboard');
-  });
+        let copy = new ClipboardJS('.clipboard');
+
+        function tooltip(){            
+            $('.toolTip').show()//.delay(5000).hide();
+            setTimeout(() => {
+                $('.toolTip').hide()
+            }, 500);         
+            };
+
+
+        
 
             var myFunc = function(type){
-                // console.log('hi');
                 var btn = document.getElementById(type) 
                 btn.classList.add("isvisable");
+                // document.getElementById()
                 window.scrollTo(0, 0);
             }
         
@@ -81,9 +94,12 @@
     
     </script>
     
+
+
+    
     <%- include('../views/footer'); %>
     <%- include('../views/scripts'); %>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    
     
 </body>
 </html>
